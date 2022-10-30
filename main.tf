@@ -11,7 +11,7 @@ resource "kubernetes_namespace" "hello-world" {
 resource "helm_release" "hello-world" {
   depends_on = [kubernetes_namespace.hello-world]
   name = "hello-world"
+  chart = "hello"
   namespace = "hello-world"
   repository = "https://cloudecho.github.io/charts/"
-  name = "hello"
 }
